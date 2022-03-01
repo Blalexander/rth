@@ -3568,7 +3568,7 @@ else {
       getInitialData(url, param, callback)
       break;
     }
-    case("https://blakealexander.dev/reports"): {
+    case("https://blalexander.github.io/reports"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       // let url = "https://rth-server.azurewebsites.net/getProfitLoss"
       let url = "https://rth-server.azurewebsites.net/api/reports"
@@ -3590,7 +3590,7 @@ else {
       document.querySelector('.submit-text-input').addEventListener('click', submitMessage)
       break;
     }
-    case("https://blakealexander.dev/dashboard"): {
+    case("https://blalexander.github.io/dashboard"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       let url = "https://rth-server.azurewebsites.net/api/userdata/?username="
       let param = localStorage.username
@@ -3609,7 +3609,7 @@ else {
       getInitialData(url, param, callback)
       break;
     }
-    case("https://blakealexander.dev/orders"): {
+    case("https://blalexander.github.io/orders"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       // let url = "https://rth-server.azurewebsites.net/getOrderInfo"
       let url = "https://rth-server.azurewebsites.net/api/estimates"
@@ -3628,7 +3628,7 @@ else {
       getInitialData(url, param, callback)
       break;
     }
-    case("https://blakealexander.dev/estimates"): {
+    case("https://blalexander.github.io/estimates"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       let url = "https://rth-server.azurewebsites.net/api/estimates"
       let param = ""
@@ -3646,7 +3646,7 @@ else {
       // displayEstimateForm(formOptions)
       break;
     }
-    case("https://blakealexander.dev/createestimate"): {
+    case("https://blalexander.github.io/createestimate"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       let url = "https://rth-server.azurewebsites.net/api/templates"
       let param = ""
@@ -3663,7 +3663,7 @@ else {
       // displayEstimateForm(formOptions)
       break;
     }
-    case("https://blakealexander.dev/routes"): {
+    case("https://blalexander.github.io/routes"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       let url = "https://rth-server.azurewebsites.net/api/routes"
       let param = ""
@@ -3680,7 +3680,7 @@ else {
       initializeBilling()
       break;
     }
-    case("https://blakealexander.dev/billing"): {
+    case("https://blalexander.github.io/billing"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       let url = "https://rth-server.azurewebsites.net/api/users"
       let param = ""
@@ -3698,7 +3698,7 @@ else {
       // displayEstimateForm(formOptions)
       break;
     }
-    case("https://blakealexander.dev/schedules"): {
+    case("https://blalexander.github.io/schedules"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       let url = "https://rth-server.azurewebsites.net/api/schedules"
       let param = ""
@@ -3715,7 +3715,7 @@ else {
       // displayEstimateForm(formOptions)
       break;
     }
-    case("https://blakealexander.dev/catalog"): {
+    case("https://blalexander.github.io/catalog"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       let url = "https://rth-server.azurewebsites.net/api/catalog"
       let param = ""
@@ -3732,7 +3732,7 @@ else {
       // displayEstimateForm(formOptions)
       break;
     }
-    case("https://blakealexander.dev/accounts"): {
+    case("https://blalexander.github.io/accounts"): {
       baseUrl = "https://rth-server.azurewebsites.net"
       let url = "https://rth-server.azurewebsites.net/api/accounts"
       let param = ""
