@@ -1,0 +1,23 @@
+{
+  "name": "rth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "docs/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Blake Alexander",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "csrf": "^3.1.0",
+    "express": "^4.17.1",
+    "intuit-oauth": "^4.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "query-string": "^7.0.1"
+  }
+}

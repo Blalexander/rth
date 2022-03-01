@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="docs/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">   -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <link rel="icon" href="data:,">
+  </head>
+  <body>
+    <div class="dev-buttons">
+      <button class="owner-dev-button" onclick="changeToOwner()">Owner</button>
+      <button class="admin-dev-button" onclick="changeToAdmin()">Admin</button>
+      <button class="sales-dev-button" onclick="changeToSales()">Sales</button>
+      <button class="driver-dev-button" onclick="changeToDriver()">Driver</button>
+    </div>
+
+    <div id="container">
+      <a id="btn-scan-qr">
+        <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg">
+      <a/>
+  
+      <canvas hidden="" id="qr-canvas"></canvas>
+  
+      <div id="qr-result" hidden="">
+        <b>Data:</b> <span id="outputData"></span>
+      </div>
+    </div>
+
+    <div class="nav-container">
+      <div class="site-logo">
+        <img src="assets/RtH_Logo_squarespace1.png" alt="Rainbow to Heaven Logo">
+      </div>
+      <div class="user-container">
+        <h3 class="welcome-text">Welcome back, </h3>
+        <img class="user-profile-picture"></img>
+        <h3 class="user-name"></h3>
+        <div class="user-alerts">
+          <div class="alert-symbol">!</div>
+          <div class="alert-message"></div>
+        </div>
+      </div>
+      <div class="nav-sidebar">
+        <a href="/reports.html">
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="color-my-fill" d="M0 2C0 0.895431 0.895431 0 2 0H10C11.1046 0 12 0.895431 12 2V10C12 11.1046 11.1046 12 10 12H2C0.895431 12 0 11.1046 0 10V2Z" fill="#364163"/>
+            <path class="color-my-fill" d="M13 2C13 0.895431 13.8954 0 15 0H23C24.1046 0 25 0.895431 25 2V10C25 11.1046 24.1046 12 23 12H15C13.8954 12 13 11.1046 13 10V2Z" fill="#364163"/>
+            <path class="color-my-fill" d="M13 15C13 13.8954 13.8954 13 15 13H23C24.1046 13 25 13.8954 25 15V23C25 24.1046 24.1046 25 23 25H15C13.8954 25 13 24.1046 13 23V15Z" fill="#364163"/>
+            <path class="color-my-fill" d="M0 15C0 13.8954 0.895431 13 2 13H10C11.1046 13 12 13.8954 12 15V23C12 24.1046 11.1046 25 10 25H2C0.895431 25 0 24.1046 0 23V15Z" fill="#364163"/>
+          </svg>
+          Reports
+        </a>
+        <a href="/dashboard.html">
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="color-my-fill" d="M0 2C0 0.895431 0.895431 0 2 0H10C11.1046 0 12 0.895431 12 2V10C12 11.1046 11.1046 12 10 12H2C0.895431 12 0 11.1046 0 10V2Z" fill="#364163"/>
+            <path class="color-my-fill" d="M13 2C13 0.895431 13.8954 0 15 0H23C24.1046 0 25 0.895431 25 2V10C25 11.1046 24.1046 12 23 12H15C13.8954 12 13 11.1046 13 10V2Z" fill="#364163"/>
+            <path class="color-my-fill" d="M13 15C13 13.8954 13.8954 13 15 13H23C24.1046 13 25 13.8954 25 15V23C25 24.1046 24.1046 25 23 25H15C13.8954 25 13 24.1046 13 23V15Z" fill="#364163"/>
+            <path class="color-my-fill" d="M0 15C0 13.8954 0.895431 13 2 13H10C11.1046 13 12 13.8954 12 15V23C12 24.1046 11.1046 25 10 25H2C0.895431 25 0 24.1046 0 23V15Z" fill="#364163"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="/orders.html">
+          <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="color-my-stroke" d="M19 2V23C19 23.5523 18.5523 24 18 24H2C1.44772 24 1 23.5523 1 23V5.92488C1 5.63151 1.12882 5.35294 1.35235 5.16294L3.58882 3.26194L5.96986 1.23806C6.15066 1.08438 6.38022 1 6.61751 1H18C18.5523 1 19 1.44772 19 2Z" stroke="#364163" stroke-width="2"/>
+            <path class="color-my-fill" d="M12.4697 15.7041C12.4697 15.165 12.2793 14.7109 11.8984 14.3418C11.5234 13.9727 10.8877 13.6387 9.99121 13.3398C8.74316 12.959 7.83203 12.4639 7.25781 11.8545C6.68945 11.2393 6.40527 10.46 6.40527 9.5166C6.40527 8.55566 6.68359 7.76758 7.24023 7.15234C7.80273 6.53711 8.57324 6.1709 9.55176 6.05371V4.12891H10.8613V6.0625C11.8457 6.19727 12.6104 6.61035 13.1553 7.30176C13.7061 7.99316 13.9814 8.93945 13.9814 10.1406H12.3643C12.3643 9.31445 12.168 8.6582 11.7754 8.17188C11.3828 7.68555 10.8525 7.44238 10.1846 7.44238C9.4873 7.44238 8.9541 7.62402 8.58496 7.9873C8.21582 8.34473 8.03125 8.8457 8.03125 9.49023C8.03125 10.0879 8.22461 10.5654 8.61133 10.9229C9.00391 11.2744 9.64551 11.5967 10.5361 11.8896C11.4326 12.1768 12.1299 12.4961 12.6279 12.8477C13.1318 13.1934 13.501 13.5977 13.7354 14.0605C13.9756 14.5234 14.0957 15.0654 14.0957 15.6865C14.0957 16.6768 13.7969 17.4736 13.1992 18.0771C12.6074 18.6807 11.7754 19.0381 10.7031 19.1494V20.8281H9.40234V19.1494C8.3125 19.0498 7.45703 18.6631 6.83594 17.9893C6.2207 17.3096 5.91309 16.3896 5.91309 15.2295H7.53906C7.53906 16.0439 7.75293 16.6709 8.18066 17.1104C8.6084 17.5498 9.21484 17.7695 10 17.7695C10.7676 17.7695 11.3711 17.585 11.8105 17.2158C12.25 16.8467 12.4697 16.3428 12.4697 15.7041Z" fill="#364163"/>
+            <path class="color-my-fill" d="M6 0.5V6H0.5L6 0.5Z" fill="#364163"/>
+          </svg>
+          Orders
+        </a>
+        <!-- <a href="/estimates.html">
+          <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="color-my-stroke" d="M19 2V23C19 23.5523 18.5523 24 18 24H2C1.44772 24 1 23.5523 1 23V5V2C1 1.44772 1.44772 1 2 1H5.88235H18C18.5523 1 19 1.44772 19 2Z" stroke="#364163" stroke-width="2"/>
+            <path class="color-my-fill" d="M8.88379 15.3965C8.89551 14.6992 8.97461 14.1484 9.12109 13.7441C9.26758 13.3398 9.56641 12.8916 10.0176 12.3994L11.1689 11.2129C11.6611 10.6562 11.9072 10.0586 11.9072 9.41992C11.9072 8.80469 11.7461 8.32422 11.4238 7.97852C11.1016 7.62695 10.6328 7.45117 10.0176 7.45117C9.41992 7.45117 8.93945 7.60938 8.57617 7.92578C8.21289 8.24219 8.03125 8.66699 8.03125 9.2002H6.40527C6.41699 8.25098 6.75391 7.48633 7.41602 6.90625C8.08398 6.32031 8.95117 6.02734 10.0176 6.02734C11.125 6.02734 11.9863 6.32617 12.6016 6.92383C13.2227 7.51562 13.5332 8.33008 13.5332 9.36719C13.5332 10.3926 13.0586 11.4033 12.1094 12.3994L11.1514 13.3486C10.7236 13.8232 10.5098 14.5059 10.5098 15.3965H8.88379ZM8.81348 18.1826C8.81348 17.9189 8.89258 17.6992 9.05078 17.5234C9.21484 17.3418 9.45508 17.251 9.77148 17.251C10.0879 17.251 10.3281 17.3418 10.4922 17.5234C10.6562 17.6992 10.7383 17.9189 10.7383 18.1826C10.7383 18.4463 10.6562 18.666 10.4922 18.8418C10.3281 19.0117 10.0879 19.0967 9.77148 19.0967C9.45508 19.0967 9.21484 19.0117 9.05078 18.8418C8.89258 18.666 8.81348 18.4463 8.81348 18.1826Z" fill="#364163"/>
+          </svg>
+          Estimates
+        </a> -->
+        <a href="/createestimate.html">
+          <svg width="25" height="30" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path  class="color-my-stroke" d="M18 29H2C1.44772 29 1 28.5523 1 28V10V7C1 6.44772 1.44772 6 2 6H10.4919C10.552 6 10.6097 6.02387 10.6521 6.06636C10.6694 6.08358 10.6837 6.10346 10.6946 6.12524L10.8944 6.52492C10.9639 6.66378 11 6.81689 11 6.97214V7.5V8V8.02786C11 8.4936 11.1084 8.95294 11.3167 9.3695L11.6056 9.94721L12.1056 10.9472L12.3074 11.3509C12.5977 11.9315 13.0685 12.4023 13.6491 12.6926L14.0528 12.8944L14.9257 13.3309C15.0526 13.3943 15.1839 13.4487 15.3186 13.4936L16.3759 13.8461C16.6818 13.948 17.0021 14 17.3246 14H17.5279C17.6831 14 17.8362 14.0361 17.9751 14.1056L18.4472 14.3416C18.786 14.511 19 14.8573 19 15.2361V28C19 28.5523 18.5523 29 18 29Z" stroke="#364163" stroke-width="2" stroke-linejoin="round"/>
+            <path class="color-my-fill" d="M8.88379 20.3965C8.89551 19.6992 8.97461 19.1484 9.12109 18.7441C9.26758 18.3398 9.56641 17.8916 10.0176 17.3994L11.1689 16.2129C11.6611 15.6562 11.9072 15.0586 11.9072 14.4199C11.9072 13.8047 11.7461 13.3242 11.4238 12.9785C11.1016 12.627 10.6328 12.4512 10.0176 12.4512C9.41992 12.4512 8.93945 12.6094 8.57617 12.9258C8.21289 13.2422 8.03125 13.667 8.03125 14.2002H6.40527C6.41699 13.251 6.75391 12.4863 7.41602 11.9062C8.08398 11.3203 8.95117 11.0273 10.0176 11.0273C11.125 11.0273 11.9863 11.3262 12.6016 11.9238C13.2227 12.5156 13.5332 13.3301 13.5332 14.3672C13.5332 15.3926 13.0586 16.4033 12.1094 17.3994L11.1514 18.3486C10.7236 18.8232 10.5098 19.5059 10.5098 20.3965H8.88379ZM8.81348 23.1826C8.81348 22.9189 8.89258 22.6992 9.05078 22.5234C9.21484 22.3418 9.45508 22.251 9.77148 22.251C10.0879 22.251 10.3281 22.3418 10.4922 22.5234C10.6562 22.6992 10.7383 22.9189 10.7383 23.1826C10.7383 23.4463 10.6562 23.666 10.4922 23.8418C10.3281 24.0117 10.0879 24.0967 9.77148 24.0967C9.45508 24.0967 9.21484 24.0117 9.05078 23.8418C8.89258 23.666 8.81348 23.4463 8.81348 23.1826Z" fill="#364163"/>
+            <circle class="color-my-stroke" cx="17.5" cy="7.5" r="6.5" stroke="#364163" stroke-width="2"/>
+            <line class="color-my-stroke" x1="18" y1="3" x2="18" y2="11" stroke="#364163" stroke-width="2"/>
+            <line class="color-my-stroke" x1="14" y1="7" x2="22" y2="7" stroke="#364163" stroke-width="2"/>
+            </svg>
+          Create Estimate
+        </a>
+        <a class="current-location" href="/routes.html">
+          <svg width="16" height="29" viewBox="0 0 16 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="color-my-stroke" d="M9 4C9 4.86637 8.58601 6.19574 7.85876 7.6249C7.32912 8.66571 6.67398 9.67995 6 10.5054C5.32602 9.67995 4.67088 8.66571 4.14124 7.6249C3.41399 6.19574 3 4.86637 3 4C3 2.34315 4.34315 1 6 1C7.65685 1 9 2.34315 9 4Z" stroke="#364163" stroke-width="2"/>
+            <circle class="color-my-fill" cx="6" cy="4" r="1" fill="#364163"/>
+            <path class="color-my-stroke" d="M15 21C15 21.8664 14.586 23.1957 13.8588 24.6249C13.3291 25.6657 12.674 26.68 12 27.5054C11.326 26.68 10.6709 25.6657 10.1412 24.6249C9.41399 23.1957 9 21.8664 9 21C9 19.3431 10.3431 18 12 18C13.6569 18 15 19.3431 15 21Z" stroke="#364163" stroke-width="2"/>
+            <circle class="color-my-fill" cx="12" cy="21" r="1" fill="#364163"/>
+            <path class="color-my-stroke" d="M7.06715 24.3334C-8.3485 15.6959 19.5421 18.2195 8.0073 11.3674" stroke="#364163" stroke-width="2"/>
+            </svg>
+          Routes
+        </a>
+        <!-- <a href="/billing.html">
+          <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="color-my-stroke" d="M19 2V23C19 23.5523 18.5523 24 18 24H2C1.44772 24 1 23.5523 1 23V5.92488C1 5.63151 1.12882 5.35294 1.35235 5.16294L3.58882 3.26194L5.96986 1.23806C6.15066 1.08438 6.38022 1 6.61751 1H18C18.5523 1 19 1.44772 19 2Z" stroke="#364163" stroke-width="2"/>
+            <path class="color-my-fill" d="M12.4697 15.7041C12.4697 15.165 12.2793 14.7109 11.8984 14.3418C11.5234 13.9727 10.8877 13.6387 9.99121 13.3398C8.74316 12.959 7.83203 12.4639 7.25781 11.8545C6.68945 11.2393 6.40527 10.46 6.40527 9.5166C6.40527 8.55566 6.68359 7.76758 7.24023 7.15234C7.80273 6.53711 8.57324 6.1709 9.55176 6.05371V4.12891H10.8613V6.0625C11.8457 6.19727 12.6104 6.61035 13.1553 7.30176C13.7061 7.99316 13.9814 8.93945 13.9814 10.1406H12.3643C12.3643 9.31445 12.168 8.6582 11.7754 8.17188C11.3828 7.68555 10.8525 7.44238 10.1846 7.44238C9.4873 7.44238 8.9541 7.62402 8.58496 7.9873C8.21582 8.34473 8.03125 8.8457 8.03125 9.49023C8.03125 10.0879 8.22461 10.5654 8.61133 10.9229C9.00391 11.2744 9.64551 11.5967 10.5361 11.8896C11.4326 12.1768 12.1299 12.4961 12.6279 12.8477C13.1318 13.1934 13.501 13.5977 13.7354 14.0605C13.9756 14.5234 14.0957 15.0654 14.0957 15.6865C14.0957 16.6768 13.7969 17.4736 13.1992 18.0771C12.6074 18.6807 11.7754 19.0381 10.7031 19.1494V20.8281H9.40234V19.1494C8.3125 19.0498 7.45703 18.6631 6.83594 17.9893C6.2207 17.3096 5.91309 16.3896 5.91309 15.2295H7.53906C7.53906 16.0439 7.75293 16.6709 8.18066 17.1104C8.6084 17.5498 9.21484 17.7695 10 17.7695C10.7676 17.7695 11.3711 17.585 11.8105 17.2158C12.25 16.8467 12.4697 16.3428 12.4697 15.7041Z" fill="#364163"/>
+            <path class="color-my-fill" d="M6 0.5V6H0.5L6 0.5Z" fill="#364163"/>
+          </svg>
+          Billing
+        </a> -->
+        <a href="/schedules.html">
+          <svg width="26" height="25" viewBox="0 0 26 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect class="color-my-stroke" x="1" y="3" width="24" height="21" rx="1" stroke="#364163" stroke-width="2"/>
+            <rect class="color-my-fill" x="7" width="2" height="6" fill="#364163"/>
+            <rect class="color-my-fill" x="17" width="2" height="6" fill="#364163"/>
+            <rect class="color-my-fill" x="4" y="10" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="8" y="10" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="12" y="10" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="16" y="10" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="20" y="10" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="4" y="14" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="8" y="14" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="12" y="14" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="16" y="14" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="20" y="14" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="4" y="18" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="8" y="18" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="12" y="18" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="16" y="18" width="2" height="2" fill="#364163"/>
+            <rect class="color-my-fill" x="20" y="18" width="2" height="2" fill="#364163"/>
+            <line class="color-my-stroke" x1="2" y1="5.5" x2="24" y2="5.5" stroke="#364163" stroke-width="3"/>
+          </svg>
+          Schedules
+        </a>
+        <a href="/catalog.html">
+          <svg width="32" height="23" viewBox="0 0 32 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="color-my-stroke" d="M5 19.2192V1.28078L15 3.78078V21.7192L5 19.2192Z" stroke="#364163" stroke-width="2"/>
+            <path class="color-my-stroke" d="M17 21.7192V3.78078L27 1.28078V19.2192L17 21.7192Z" stroke="#364163" stroke-width="2"/>
+            <line class="color-my-stroke" x1="16" y1="22" x2="32" y2="22" stroke="#364163" stroke-width="2"/>
+            <line class="color-my-stroke" y1="22" x2="16" y2="22" stroke="#364163" stroke-width="2"/>
+            <line class="color-my-stroke" x1="31" y1="23" x2="31" y2="2" stroke="#364163" stroke-width="2"/>
+            <line class="color-my-stroke" x1="1" y1="23" x2="1" y2="2" stroke="#364163" stroke-width="2"/>
+            <line class="color-my-stroke" x1="32" y1="3" x2="28" y2="3" stroke="#364163" stroke-width="2"/>
+            <line class="color-my-stroke" x1="4" y1="3" y2="3" stroke="#364163" stroke-width="2"/>
+          </svg>
+          Catalog
+        </a>
+        <a href="/accounts.html">
+          <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="color-my-stroke" d="M19.5 19C19.5 20.9114 18.9115 21.9105 17.939 22.5158C16.8507 23.1933 15.0999 23.5 12.5 23.5C9.95156 23.5 8.05917 23.0826 6.83018 22.2781C5.67655 21.5229 5 20.3576 5 18.5C5 16.3778 5.33486 15.4891 6.10731 14.9604C6.54586 14.6603 7.21818 14.4095 8.28185 14.2416C9.34081 14.0744 10.714 14 12.5 14C14.2755 14 15.6005 14.105 16.5926 14.3111C17.5832 14.5168 18.1749 14.81 18.5484 15.1373C19.2669 15.7669 19.5 16.8066 19.5 19Z" stroke="#364163" stroke-width="2"/>
+            <circle class="color-my-stroke" cx="13" cy="8" r="4" stroke="#364163" stroke-width="2"/>
+            <circle class="color-my-stroke" cx="12.5" cy="12.5" r="11.5" stroke="#364163" stroke-width="2"/>
+            </svg>
+          Accounts
+        </a>
+      </div>
+      <button id="initialize-quickbooks" onclick="initializeQuickbooks()">Submit</button>
+    </div>
+
+    <div class="section-header">
+      <h1>Routes</h1>
+    </div>
+
+    <div class="body-content">
+      <div class="routes-container">
+        <div class="routes-alert-container">
+          <p>Pending route: 123 Address Street</p>
+          <div class="routes-alert-yes">Yes</div>
+          <div class="routes-alert-no">No</div>
+        </div>
+        <div id="mapid"></div>
+        <div class="drivers-working"></div>
+        <div class="drivers-off"></div>
+      </div>
+      <!-- <div id="mapid"></div> -->
+    </div>
+    
+    <script type="text/javascript" src="docs/tools.js" async defer></script>
+    <script type="text/javascript" src="docs/index.js" async defer></script>
+    <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
+    <script src="docs/qrCodeScanner.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  </body>
+</html>

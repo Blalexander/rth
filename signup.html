@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flexbox Sandbox</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="docs/style.css">
+    <link rel="icon" href="data:,">
+  </head>
+  <body>
+    <main id="landing">
+      <section id="landing-header">
+        <h1 class="landing-title">Title</h1>
+        <p class="landing-description">Description</p>
+        <!-- <a href="signup.html"><button id="signupButton">Sign Up</button></a> -->
+      </section>
+        <!-- <a class="loginButtonContainer" href="index.html"><button>Login</button></a> -->
+      <form id="signup">
+        <h1>Sign Up</h1>
+        <label for="username-input">Username:</label>
+        <input type="text" name="username" id="username-input"  required>
+        <br>
+        <label for="password-input">Password: </label>
+        <input type="password" name="password" id="password-input"  required>
+        <br>
+        <button class="submitLogin" type="submit">Submit</button>
+      </form>
+      <div class="loginSection">
+        <p class="loginButtonHeader">Already have an account?</p>
+        <a class="loginButtonContainer" href="index.html"><button id="loginButton">Log in here</button></a>
+      </div>
+    </main>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="docs/signup.js"></script>
+  </body>
+</html>
