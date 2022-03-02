@@ -90,6 +90,12 @@ input:placeholder-shown {
   filter: invert(1);
 }
 
+.site-logo h1 {
+  font-style: italic;
+  font-size: 3em;
+  color: hsl(225, 40%, 20%);
+}
+
 .dev-buttons {
   position: fixed;
   bottom: 15px;
@@ -99,6 +105,7 @@ input:placeholder-shown {
   width: 310px;
   padding: 0.25em;
   text-align: center;
+  display: none;
 }
 
 .dev-buttons button {
@@ -129,6 +136,7 @@ input:placeholder-shown {
   left: 0px;
   z-index: 5;
 /*   opacity: 0; */
+  display: none;
 }
 
 #initialize-quickbooks:hover {

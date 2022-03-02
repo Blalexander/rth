@@ -2430,6 +2430,7 @@ function displaySchedules(f) {
 }
 
 function makeScheduleHeader(day, month, date) {
+  month += 1
   let dayElement
   // console.log(day, month, date, `${day} ${month}/${date}`, `${month}/${date}`)
   if(day != "blank") {
@@ -2446,6 +2447,7 @@ function makeScheduleHeader(day, month, date) {
 }
 
 function makeEachDay(type, month, date, name) {
+  month += 1
   let thisDay = document.createElement('DIV')
   // name = capitalizeFirstLetter(name.replace(' ', '-'), true)
   name = capitalizeFirstLetter(name, true)

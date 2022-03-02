@@ -31,6 +31,7 @@ function getUserId(user){
 		localStorage.user_background = JSON.stringify(user_id.bg)
 		// getInitialData(user_id);
     location.assign('/rth/dashboard.html')
+    // location.assign('/dashboard.html')
 	})
 	.catch(err=>{
 		console.error(err);
