@@ -3556,6 +3556,14 @@ else {
     document.querySelector('.user-profile-picture').src = JSON.parse(localStorage.user_background)
     console.log(JSON.parse(localStorage.user_background))
   }
+  for(let eachHref in document.querySelector('.nav-sidebar').children) {
+    if(document.querySelector('.nav-sidebar').children[eachHref].attributes != undefined && document.querySelector('.nav-sidebar').children[eachHref].attributes.href != undefined) {
+      console.log(document.querySelector('.nav-sidebar').children[eachHref].attributes.href.value)
+      let previousHref = document.querySelector('.nav-sidebar').children[eachHref].attributes.href.value
+      let newPref = '/rth'
+      document.querySelector('.nav-sidebar').children[eachHref].attributes.href.value = newPref.concat(previousHref)
+    }
+  }
   switch(window.location.href.substring(0, window.location.href.search(".html"))) {
     case("http://localhost:5500/reports"): {
       baseUrl = "http://localhost:3000"
