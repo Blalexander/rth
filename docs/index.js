@@ -3542,6 +3542,9 @@ if(window.location.search != "" && window.location.href.includes("petpage.html?s
   if(window.location.href.includes('localhost')) {
     baseUrl = "http://localhost:3000"
   }
+  else if(window.location.href.includes('github')) {
+    baseUrl = "https://blalexander.github.io/rth/"
+  }
   else {
     baseUrl = "https://rth-server.azurewebsites.net"
   }
