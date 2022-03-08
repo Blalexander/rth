@@ -1990,6 +1990,7 @@ input:placeholder-shown {
   flex-flow: row wrap;
   justify-content: center;
   gap: 10px;
+  display: none;
 }
 
 .estimate-document {
@@ -3283,6 +3284,7 @@ body.show-update .stage-update-container {
   flex-flow: column nowrap;
   align-items: center;
   z-index: 1;
+  background-color: white;
 }
 
 .update-catalog input[type="text"] {
@@ -3409,7 +3411,8 @@ body.show-update .stage-update-container {
   flex-flow: column nowrap;
   align-items: center;
   z-index: 1;
-  transition: 0.25s;
+/*   transition: 0.25s; */
+  background-color: white;
 }
 
 
