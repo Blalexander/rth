@@ -30,8 +30,8 @@ function getUserId(user){
 		localStorage.user_preferences = JSON.stringify(user_id.prefs);
 		localStorage.user_background = JSON.stringify(user_id.bg)
 		// getInitialData(user_id);
-    // location.assign('/rth/dashboard.html')
-    location.assign('/dashboard.html')
+    location.assign('/rth/dashboard.html')
+    // location.assign('/dashboard.html')
 	})
 	.catch(err=>{
 		console.error(err);

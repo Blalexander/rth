@@ -696,7 +696,7 @@ input:placeholder-shown {
   border-left: 1px solid black;
 }
 
-.total-revenue-header {
+.total-revenue-header, .tax-revenue-header {
   margin-top: 2rem;
 }
 

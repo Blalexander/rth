@@ -115,7 +115,7 @@ function getCartTotal(ev) {
       }
     })
     // if(cartTotal[0].v === undefined) {
-      console.log(ev)
+      // console.log(ev)
     // }
     let eachCartTotal = parseFloat(cartTotal[0].v)
     return eachCartTotal
@@ -285,15 +285,15 @@ let incomeAll2 = 0
 let cartCategories2 = {}
 
 function totalPaidAllCategories(contents, payments, total, tax) {
-  console.log(contents, payments, total, tax)
+  // console.log(contents, payments, total, tax)
   let preTaxPayment = (payments - tax) >= 0 ? (payments - tax) : 0
   let preTaxTotal = total - tax
   // console.log(preTaxPayment, preTaxTotal)
   contents.forEach(eachContent => {
     let paymentAmt = (eachContent.v.cost / preTaxTotal * preTaxPayment)
-    console.log(paymentAmt)
+    // console.log(paymentAmt)
     let taxPaymentAmt = (eachContent.v.tax * 0.01) * paymentAmt
-    console.log("TAXES: ", taxPaymentAmt)
+    // console.log("TAXES: ", taxPaymentAmt)
     switch(eachContent.v.type) {
       case("bath"): {
         incomeBath2 += paymentAmt

@@ -214,96 +214,90 @@ async function getItemCost(prodName) {
 }
 
 
-document.querySelector('.user-container').addEventListener('click', () => {
+// document.querySelector('.user-container').addEventListener('click', () => {
   // localStorage.username = ""
   // localStorage.user_id = ""
   // localStorage.user_preferences = ""
-  localStorage.clear()
-  location.reload()
-})
+  // localStorage.clear()
+  // location.reload()
+// })
 
-// {
-//   "user_preferences": "[]",
-//   "authToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiam9lIHNtaXRoIiwiaWQiOiI2MTczMTk5ZjI0YWRmZTQxYzAwYTE4ZjAiLCJ0eXBlIjoiZHJpdmVyIiwicHJlZmVyZW5jZXMiOltdfSwiaWF0IjoxNjM1MTEyNDQwLCJleHAiOjE2MzU3MTcyNDAsInN1YiI6ImpvZSBzbWl0aCJ9.mv_u2lua0jUEIfw__gD8_G2LfY8Ll31r2zrzIhppvpY",
-//   "user_id": "6173199f24adfe41c00a18f0",
-//   "username": "joe smith"
+
+
+// if(localStorage.devButton != undefined) {
+//   switch(localStorage.devButton) {
+//     case('owner'): {
+//       changeToOwner()
+//       break;
+//     }
+//     case('admin'): {
+//       changeToAdmin()
+//       break;
+//     }
+//     case('sales'): {
+//       changeToSales()
+//       break;
+//     }
+//     case('driver'): {
+//       changeToDriver()
+//       break;
+//     }
+//   }
 // }
 
+// function changeToOwner(e) {
+//   let classesToRemove = document.querySelector('.nav-container').classList
+//   classesToRemove.forEach(eachClass => {
+//     if(eachClass != "nav-container") {
+//       classesToRemove.remove(eachClass)
+//     }
+//   })
+//   document.querySelector('.nav-container').classList.add('owner-view')
+//   localStorage.setItem('devButton', 'owner')
+// }
 
-if(localStorage.devButton != undefined) {
-  switch(localStorage.devButton) {
-    case('owner'): {
-      changeToOwner()
-      break;
-    }
-    case('admin'): {
-      changeToAdmin()
-      break;
-    }
-    case('sales'): {
-      changeToSales()
-      break;
-    }
-    case('driver'): {
-      changeToDriver()
-      break;
-    }
-  }
-}
+// function changeToAdmin(e) {
+//   let classesToRemove = document.querySelector('.nav-container').classList
+//   classesToRemove.forEach(eachClass => {
+//     if(eachClass != "nav-container") {
+//       classesToRemove.remove(eachClass)
+//     }
+//   })
+//   document.querySelector('.nav-container').classList.add('admin-view')
+//   localStorage.setItem('devButton', 'admin')
+// }
 
-function changeToOwner(e) {
-  let classesToRemove = document.querySelector('.nav-container').classList
-  classesToRemove.forEach(eachClass => {
-    if(eachClass != "nav-container") {
-      classesToRemove.remove(eachClass)
-    }
-  })
-  document.querySelector('.nav-container').classList.add('owner-view')
-  localStorage.setItem('devButton', 'owner')
-}
+// function changeToSales(e) {
+//   let classesToRemove = document.querySelector('.nav-container').classList
+//   classesToRemove.forEach(eachClass => {
+//     if(eachClass != "nav-container") {
+//       classesToRemove.remove(eachClass)
+//     }
+//   })
+//   document.querySelector('.nav-container').classList.add('sales-view')
+//   localStorage.setItem('devButton', 'sales')
+//   localStorage.username = "Sarah"
+// }
 
-function changeToAdmin(e) {
-  let classesToRemove = document.querySelector('.nav-container').classList
-  classesToRemove.forEach(eachClass => {
-    if(eachClass != "nav-container") {
-      classesToRemove.remove(eachClass)
-    }
-  })
-  document.querySelector('.nav-container').classList.add('admin-view')
-  localStorage.setItem('devButton', 'admin')
-}
-
-function changeToSales(e) {
-  let classesToRemove = document.querySelector('.nav-container').classList
-  classesToRemove.forEach(eachClass => {
-    if(eachClass != "nav-container") {
-      classesToRemove.remove(eachClass)
-    }
-  })
-  document.querySelector('.nav-container').classList.add('sales-view')
-  localStorage.setItem('devButton', 'sales')
-  localStorage.username = "Sarah"
-}
-
-function changeToDriver(e) {
-  let classesToRemove = document.querySelector('.nav-container').classList
-  classesToRemove.forEach(eachClass => {
-    if(eachClass != "nav-container") {
-      classesToRemove.remove(eachClass)
-    }
-  })
-  document.querySelector('.nav-container').classList.add('driver-view')
-  localStorage.setItem('devButton', 'driver')
-  localStorage.username = "Joe Smith"
-  document.querySelector('.user-name').innerText = localStorage.username
-  if(localStorage.assigned == "yes") {
-    setTimeout(() => localStorage.assigned = "no", 500)
-    document.querySelector('.routes-alert-container').style.display = "flex"
-    document.querySelector('.routes-alert-container').classList.add('pending-alerts')
-    document.querySelector('.routes-alert-container').addEventListener('mouseover', removeFlash)
-    document.querySelector('.routes-alert-container').addEventListener('click', removeAlert)
-  }
-}
+// function changeToDriver(e) {
+//   let classesToRemove = document.querySelector('.nav-container').classList
+//   classesToRemove.forEach(eachClass => {
+//     if(eachClass != "nav-container") {
+//       classesToRemove.remove(eachClass)
+//     }
+//   })
+//   document.querySelector('.nav-container').classList.add('driver-view')
+//   localStorage.setItem('devButton', 'driver')
+//   localStorage.username = "Joe Smith"
+//   document.querySelector('.user-name').innerText = localStorage.username
+//   if(localStorage.assigned == "yes") {
+//     setTimeout(() => localStorage.assigned = "no", 500)
+//     document.querySelector('.routes-alert-container').style.display = "flex"
+//     document.querySelector('.routes-alert-container').classList.add('pending-alerts')
+//     document.querySelector('.routes-alert-container').addEventListener('mouseover', removeFlash)
+//     document.querySelector('.routes-alert-container').addEventListener('click', removeAlert)
+//   }
+// }
 
 function removeFlash() {
   document.querySelector('.routes-alert-container').classList.remove('pending-alerts')
@@ -392,8 +386,8 @@ function displayReportsData(r) {
 
   let totalIncomeTitle = createEls('H3', 'total-revenue-header', 'Total Revenue: ')
   let incomeTotal = createEls('DIV', 'total-revenue', `$${totalRevBeforeTax.toFixed(2)}`)
-  // let discTitle = createEls('H3', 'discount-amount-header', 'Total discounts given: ')
-  // let discTotal = createEls('DIV', 'discount-amount', `$${discTracker.toFixed(2)}`)
+  let discTitle = createEls('H3', 'discount-amount-header', 'Total discounts given: ')
+  let discTotal = createEls('DIV', 'discount-amount', `$${discTracker.toFixed(2)}`)
   let absoluteAmt = (payments.creditRev + payments.webRev + payments.cashRev + payments.checkRev).toFixed(2)
   let absoluteTitle = createEls('H3', 'absolute-total-income-header', 'Total Income: ')
   let absoluteTotal = createEls('DIV', 'absolute-total-income', `$${absoluteAmt}`)
@@ -409,8 +403,8 @@ function displayReportsData(r) {
   let pawprintIncomeTotal = createEls('DIV', ['pawprint-income-total', 'show-related'], '')
   let bathsIncomeTitle = createEls('H3', ['baths-income-header', 'show-related'], 'Income Baths: ')
   let bathsIncomeTotal = createEls('DIV', ['baths-income-total', 'show-related'], '')
-  document.querySelector('.reports-container').append(absoluteTitle, absoluteTotal, taxTitle, taxTotal, credTitle, credTotal, webTitle, webTotal, cashTitle, cashTotal, checkTitle, checkTotal)
-  document.querySelector('.reports-container').append(totalIncomeTitle, incomeTotal, haircutIncomeTitle, haircutIncomeTotal, jewelryIncomeTitle, jewelryIncomeTotal, dentalIncomeTitle, dentalIncomeTotal, pawprintIncomeTitle, pawprintIncomeTotal, bathsIncomeTitle, bathsIncomeTotal)
+  document.querySelector('.reports-container').append(absoluteTitle, absoluteTotal, credTitle, credTotal, webTitle, webTotal, cashTitle, cashTotal, checkTitle, checkTotal)
+  document.querySelector('.reports-container').append(totalIncomeTitle, incomeTotal, haircutIncomeTitle, haircutIncomeTotal, jewelryIncomeTitle, jewelryIncomeTotal, dentalIncomeTitle, dentalIncomeTotal, pawprintIncomeTitle, pawprintIncomeTotal, bathsIncomeTitle, bathsIncomeTotal, taxTitle, taxTotal, discTitle, discTotal)
 
   let totalCartContainer = createEls('DIV', 'reports-cart-total-container', 'Carts: ')
   let cartCategories = {}
@@ -430,15 +424,15 @@ function displayReportsData(r) {
     let findAllTaxes = await getCartTaxes(eachCartContentModifiers) //function produces nothing- only staggers each loop correctly
     let findTotalPaidAllCategories = await totalPaidAllCategories(eachCartContents, eachCartPayments, eachCartTotal, eachCartContentModifiers.tax)
     let findTotalDueAllCategories = await totalDueAllCategories(eachCartContents, eachCartContentsCost)
-    // console.log(eachCartContentModifiers, findAllTaxes, findTotalDueAllCategories, findTotalPaidAllCategories, taxTracker, discTracker)
+    // console.log({eachCartContentModifiers, findAllTaxes, findTotalDueAllCategories, findTotalPaidAllCategories, taxTracker, discTracker})
     // console.log(findTotalPaidAllCategories)
 
-    let 
 
     totalRevBeforeTax = findTotalPaidAllCategories.all
     totalTaxRev = findTotalPaidAllCategories.allTaxes
     incomeTotal.innerText = '$' + totalRevBeforeTax.toFixed(2)
     taxTotal.innerText = '$' + totalTaxRev.toFixed(2)
+    discTotal.innerText = '$' + ((totalRevBeforeTax + totalTaxRev) - absoluteAmt).toFixed(2)
     // console.log(eachCartInd, carts.length)
     if((eachCartInd + 1) === carts.length) {
       // cremIncomeTotal.innerText = '$' + findTotalPaidAllCategories.cremation.toFixed(2)
@@ -1386,6 +1380,7 @@ function storePreferencesInDb() {
       })
       .then(res => {
         console.log(res)
+        location.reload()
       })
     }
     catch(e) {
@@ -1426,6 +1421,7 @@ function sortEstimates(ev) {
       })
       console.log(revisedStore)
       localStorage.user_preferences = JSON.stringify(revisedStore);
+      location.reload()
     }
   }
 
