@@ -14,27 +14,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">  
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="docs/style.css">
     <link rel="icon" href="data:,">
   </head>
-  <body>
+  <body id="darken-behind">
 
     <main id="landing">
       <section id="landing-header">
-        <p class="landing-description">A demo version of the site can be accessed with the username "sarah bell" and password "pass"
-        </p>
+        <!-- <p class="landing-description">A demo version of the site can be accessed with the username "sarah bell" and password "pass"
+        </p> -->
         <!-- <a href="signup.html"><button id="signupButton">Sign Up</button></a> -->
       </section>
       <div class="error-container">Incorrect username or password</div>
       <form id="login">
-        <h1>Login</h1>
-        <label for="username-input">Username:</label>
-        <input type="text" name="username" id="username-input" required>
-        <br>
-        <label for="password-input">Password:</label>
-        <input type="password" name="password" id="password-input" required>
-        <br>
-        <button class="submitLogin" type="submit">Submit</button>
+        <h1 class="hide-for-demo">Login</h1>
+        <label class="hide-for-demo" for="username-input">Username:</label>
+        <input class="hide-for-demo" type="text" name="username" id="username-input" value="sarah bell" required>
+        <!-- <br> -->
+        <label class="hide-for-demo" for="password-input">Password:</label>
+        <input class="hide-for-demo" type="password" name="password" id="password-input" value="pass" required>
+        <!-- <br> -->
+        <label id="access-label" for="access-demo">Click here to log in and access a demo version of the site</label>
+        <button class="submitLogin" id="access-demo" type="submit">Submit</button>
       </form>
       <!-- <div class="signupSection">
         <p class="signupButtonHeader">Don't have an account?</p>

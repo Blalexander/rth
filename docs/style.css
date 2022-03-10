@@ -144,6 +144,10 @@ input:placeholder-shown {
   
 }
 
+#container {
+  display: none;
+}
+
 .logout-button {
   position: fixed;
   bottom: 0;
@@ -684,6 +688,16 @@ input:placeholder-shown {
 .row-container .row-line {
   padding: 0.2em;
   padding-left: 1em;
+}
+
+.show-related {
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid black;
+}
+
+.total-revenue-header {
+  margin-top: 2rem;
 }
 
 /* .row-group-summary:after {
@@ -2273,13 +2287,25 @@ input:placeholder-shown {
 
 #submitEstimate0 {
   grid-area: submit;
-  height: 40px;
+  height: 80px;
   width: 150px;
+  font-size: 14px;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+  background-color: #cbfff6;
+  border: none;
+  border-radius: 5px;
 /*   margin-bottom: 10px; */
   position: fixed;
   right: 100px;
   bottom: 50px;
+  transition: 0.25s;
+  color: gray;
+}
+
+#submitEstimate0:hover {
+  cursor: pointer;
+  background-color: #d0e2ff;
+  color: black;
 }
 
 #assign-driver {
@@ -3019,177 +3045,6 @@ label {
 
 
 
-/* ---------------- LOGIN/SIGNUP --------------------- */
-#landing {
-  display: flex;
-  flex-flow: column nowrap;
-  text-align: center;
-  align-items: center;
-  margin-top: 10vh;
-}
-
-.landing-title {
-  margin-top: 0vh;
-}
-
-.signupSection, .loginSection {
-  border-radius: 5px;
-  margin-top: 5vh;
-  padding: 1em;
-  text-align: center;
-}
-
-#signup {
-  text-align: center;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content:space-evenly;
-  height: 30vh;
-  margin-top: 10vh;
-  border-radius: 5px;
-  padding: 2em;
-}
-
-#signupButton, #loginButton {
-  border: none;
-  background-color: transparent;
-  color: blue;
-}
-
-#signupButton:hover, #loginButton:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-#login {
-  text-align: center;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content:space-evenly;
-  height: 30vh;
-  padding: 2em;
-/*   width: 170px; */
-/*   margin-top: 10vh; */
-/*   border: 2px solid gray; */
-  border-radius: 5px;
-}
-
-#login, #signup, .submitLogin, .signupSection, .loginSection {
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2) 
-  , -2px -2px 2px rgba(255, 255, 255, 0.3);
-}
-
-.submitLogin, .loginButtonContainer button {
-  background-color: springgreen;
-  border-radius: 5px;
-  border: none;
-  line-height: 2;
-  transition: 0.3s;
-}
-
-.submitLogin:hover {
-  background-image: linear-gradient(to top, lime, springgreen);
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-#landing input {
-  border: none;
-  background-color: rgba(0, 0, 0, .1);
-  border-radius: 5px;
-  min-height: 25px;
-}
-
-#landing input:focus {
-  background-color: rgba(0, 255, 255, .3);
-}
-
-.error-container {
-/*   display: none; */
-/*   position: absolute; */
-  opacity: 0;
-  top: 30%;
-  padding: 1em;
-/*   color: red; */
-  border: 1px solid red;
-  background-color: rgba(255, 0, 0, 0.4);
-  border-radius: 5px;
-  margin-top: 5vh;
-  margin-bottom: 1vh;
-}
-
-
-
-.stage-update-container {
-  position: fixed;
-  top: 40%;
-  left: 40%;
-  padding: 1em;
-  padding-top: 0.3em;
-  z-index: 10;
-  background-color: white;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.stage-update-container:after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  z-index: -1;
-  background-color: transparent;
-  pointer-events: none;
-}
-
-body .stage-update-container {
-  display: none;
-}
-
-body.show-update >div{
-  filter: blur(5px);
-}
-
-body.show-update .stage-update-container {
-  display: flex;
-  filter: blur(0px);
-}
-
-.close-stage-update {
-  width: 100%;
-  text-align: right;
-  color: red;
-}
-
-.close-stage-update:hover {
-  cursor: pointer;
-}
-
-.confirm-stage-update {
-  text-align: center;
-  padding: 0.5em;
-  margin-top: 0.25em;
-  margin-bottom: -0.25em;
-  background-color: green;
-}
-
-.confirm-stage-update:hover {
-  cursor: pointer;
-}
-
-.hidden-stage-update-line {
-  visibility: hidden;
-}
-
-
-
-
-
-
-
-
 
 
 /* ---------------------------- CATALOG -------------------------------- */
@@ -3422,6 +3277,202 @@ body.show-update .stage-update-container {
 
 
 
+/* ---------------- LOGIN/SIGNUP --------------------- */
+#landing {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+.landing-title {
+  margin-top: 0vh;
+}
+
+.signupSection, .loginSection {
+  border-radius: 5px;
+  margin-top: 5vh;
+  padding: 1em;
+  text-align: center;
+}
+
+#signup {
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:space-evenly;
+  height: 30vh;
+  margin-top: 10vh;
+  border-radius: 5px;
+  padding: 2em;
+}
+
+#signupButton, #loginButton {
+  border: none;
+  background-color: transparent;
+  color: blue;
+}
+
+#signupButton:hover, #loginButton:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#login {
+  text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content:space-evenly;
+  height: 30vh;
+  padding: 2em;
+/*   width: 170px; */
+/*   margin-top: 10vh; */
+/*   border: 2px solid gray; */
+  background-color: hsl(225, 40%, 20%);
+  color: white;
+  border-radius: 5px;
+}
+
+#login, #signup, .submitLogin, .signupSection, .loginSection {
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2) 
+  , -2px -2px 2px rgba(255, 255, 255, 0.3);
+}
+
+.submitLogin, .loginButtonContainer button {
+/*   background-color: springgreen; */
+  background-color: #d0e2ff;
+/*   color: white; */
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  line-height: 2;
+  transition: 0.3s;
+}
+
+.submitLogin:hover {
+/*   background-image: linear-gradient(to top, lime, springgreen); */
+  background-color: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.hide-for-demo {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#access-demo {
+  font-size: 18px;
+}
+
+#access-label {
+  font-size: 20px;
+}
+
+/* #darken-behind {
+  background-color: hsl(225, 40%, 20%);
+} */
+
+#landing input {
+  border: none;
+  background-color: rgba(0, 0, 0, .1);
+  border-radius: 5px;
+  min-height: 25px;
+}
+
+#landing input:focus {
+  background-color: rgba(0, 255, 255, .3);
+}
+
+.error-container {
+/*   display: none; */
+/*   position: absolute; */
+  opacity: 0;
+  top: 30%;
+  padding: 1em;
+/*   color: red; */
+  border: 1px solid red;
+  background-color: rgba(255, 0, 0, 0.4);
+  border-radius: 5px;
+  margin-top: 5vh;
+  margin-bottom: 1vh;
+}
+
+
+
+.stage-update-container {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  padding: 1em;
+  padding-top: 0.3em;
+  z-index: 10;
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.stage-update-container:after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+body .stage-update-container {
+  display: none;
+}
+
+body.show-update >div{
+  filter: blur(5px);
+}
+
+body.show-update .stage-update-container {
+  display: flex;
+  filter: blur(0px);
+}
+
+.close-stage-update {
+  width: 100%;
+  text-align: right;
+  color: red;
+}
+
+.close-stage-update:hover {
+  cursor: pointer;
+}
+
+.confirm-stage-update {
+  text-align: center;
+  padding: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: -0.25em;
+  background-color: green;
+}
+
+.confirm-stage-update:hover {
+  cursor: pointer;
+}
+
+.hidden-stage-update-line {
+  visibility: hidden;
+}
+
+
+
+
+
+
+
 
 
 
@@ -3467,6 +3518,20 @@ body.show-update .stage-update-container {
   background-image: linear-gradient(90deg, rgb(62, 25, 113),rgb(72, 105, 206));
 }
 
+
+
+
+
+
+
+/* ------------ Omissions for Clean Pet ------------- */
+.date-of-passing, .return-cremains-to-pet-owner, .pick-up-same-name\/address-as-pet-owner\?, .pickup-time {
+  display: none;
+}
+
+.urns-category, .noseprint-category, .statues-category, .cremation-category, .delivery-category {
+  display: none;
+}
 
 
 

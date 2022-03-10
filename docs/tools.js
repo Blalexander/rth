@@ -114,6 +114,9 @@ function getCartTotal(ev) {
         return getTotal.v[0]
       }
     })
+    // if(cartTotal[0].v === undefined) {
+      console.log(ev)
+    // }
     let eachCartTotal = parseFloat(cartTotal[0].v)
     return eachCartTotal
   }
@@ -193,12 +196,15 @@ function getCartTaxes(ev) {
   // console.log(ev)
 }
 
-let incomeUrns = 0
-let incomeCremation = 0
+// let incomeUrns = 0
+// let incomeCremation = 0
+let incomeBath = 0
+let incomeHaircut = 0
+let incomeDental = 0
 let incomePawprints = 0
-let incomeNoseprint = 0
+// let incomeNoseprint = 0
 let incomeJewelry = 0
-let incomeDelivery = 0
+// let incomeDelivery = 0
 let incomeAll = 0
 let cartCategories = {}
 
@@ -210,83 +216,103 @@ function totalDueAllCategories(ev) {
     //   returnAmt += eachContent.v.cost
     // }
     switch(eachContent.v.type) {
-      case("urns"): {
-        incomeUrns += eachContent.v.cost
+      case("bath"): {
+        incomeBath += eachContent.v.cost
         incomeAll += eachContent.v.cost
         break;
       }
-      case("cremation"): {
-        incomeCremation += eachContent.v.cost
+      case("haircut"): {
+        incomeHaircut += eachContent.v.cost
         incomeAll += eachContent.v.cost
         break;
       }
+      case("dental"): {
+        incomeDental += eachContent.v.cost
+        incomeAll += eachContent.v.cost
+        break;
+      }
+      // case("urns"): {
+      //   incomeUrns += eachContent.v.cost
+      //   incomeAll += eachContent.v.cost
+      //   break;
+      // }
+      // case("cremation"): {
+      //   incomeCremation += eachContent.v.cost
+      //   incomeAll += eachContent.v.cost
+      //   break;
+      // }
       case("pawprints"): {
         incomePawprints += eachContent.v.cost
         incomeAll += eachContent.v.cost
         break;
       }
-      case("noseprint"): {
-        incomeNoseprint += eachContent.v.cost
-        incomeAll += eachContent.v.cost
-        break;
-      }
+      // case("noseprint"): {
+      //   incomeNoseprint += eachContent.v.cost
+      //   incomeAll += eachContent.v.cost
+      //   break;
+      // }
       case("jewelry"): {
         incomeJewelry += eachContent.v.cost
         incomeAll += eachContent.v.cost
         break;
       }
-      case("delivery"): {
-        incomeDelivery += eachContent.v.cost
-        incomeAll += eachContent.v.cost
-        break;
-      }
+      // case("delivery"): {
+      //   incomeDelivery += eachContent.v.cost
+      //   incomeAll += eachContent.v.cost
+      //   break;
+      // }
       default: {
-        console.log("Something went wrong here: ", eachContent)
+        console.log("Something went wrong here: ", eachContent, ev)
       }
     }
   })
-  return {urns: incomeUrns, cremation: incomeCremation, pawprints: incomePawprints, noseprint: incomeNoseprint, jewelry: incomeJewelry, delivery: incomeDelivery, all: incomeAll}
+  return {bath: incomeBath, haircut: incomeHaircut, dental: incomeDental, pawprints: incomePawprints, jewelry: incomeJewelry, all: incomeAll}
 }
  
 
-let taxUrns = 0
-let taxCremation = 0
+let taxBath = 0
+let taxHaircut = 0
+let taxDental = 0
 let taxPawprints = 0
-let taxNoseprint = 0
 let taxJewelry = 0
-let taxDelivery = 0
 let taxAll = 0
-let incomeUrns2 = 0
-let incomeCremation2 = 0
+let incomeBath2 = 0
+let incomeHaircut2 = 0
+let incomeDental2 = 0
 let incomePawprints2 = 0
-let incomeNoseprint2 = 0
 let incomeJewelry2 = 0
-let incomeDelivery2 = 0
 let incomeAll2 = 0
 let cartCategories2 = {}
 
 function totalPaidAllCategories(contents, payments, total, tax) {
-  // console.log(contents, payments, total, tax)
+  console.log(contents, payments, total, tax)
   let preTaxPayment = (payments - tax) >= 0 ? (payments - tax) : 0
   let preTaxTotal = total - tax
   // console.log(preTaxPayment, preTaxTotal)
   contents.forEach(eachContent => {
     let paymentAmt = (eachContent.v.cost / preTaxTotal * preTaxPayment)
-    // console.log(paymentAmt)
+    console.log(paymentAmt)
     let taxPaymentAmt = (eachContent.v.tax * 0.01) * paymentAmt
-    // console.log("TAXES: ", taxPaymentAmt)
+    console.log("TAXES: ", taxPaymentAmt)
     switch(eachContent.v.type) {
-      case("urns"): {
-        incomeUrns2 += paymentAmt
+      case("bath"): {
+        incomeBath2 += paymentAmt
         incomeAll2 += paymentAmt
-        taxUrns += taxPaymentAmt
+        taxBath += taxPaymentAmt
         taxAll += taxPaymentAmt
         break;
       }
-      case("cremation"): {
-        incomeCremation2 += paymentAmt
+      case("haircut"): {
+        incomeHaircut2 += paymentAmt
         incomeAll2 += paymentAmt
-        taxCremation += taxPaymentAmt
+        taxHaircut += taxPaymentAmt
+        taxAll += taxPaymentAmt
+        break;
+      }
+      case("dental"): {
+        incomeDental2 += paymentAmt
+        incomeAll2 += paymentAmt
+        taxDental += taxPaymentAmt
         taxAll += taxPaymentAmt
         break;
       }
@@ -297,13 +323,6 @@ function totalPaidAllCategories(contents, payments, total, tax) {
         taxAll += taxPaymentAmt
         break;
       }
-      case("noseprint"): {
-        incomeNoseprint2 += paymentAmt
-        incomeAll2 += paymentAmt
-        taxNoseprint += taxPaymentAmt
-        taxAll += taxPaymentAmt
-        break;
-      }
       case("jewelry"): {
         incomeJewelry2 += paymentAmt
         incomeAll2 += paymentAmt
@@ -311,19 +330,13 @@ function totalPaidAllCategories(contents, payments, total, tax) {
         taxAll += taxPaymentAmt
         break;
       }
-      case("delivery"): {
-        incomeDelivery2 += paymentAmt
-        incomeAll2 += paymentAmt
-        taxDelivery += taxPaymentAmt
-        taxAll += taxPaymentAmt
-        break;
-      }
       default: {
-        console.log("Something went wrong here: ", eachContent)
+        console.log("Something went wrong here: ", eachContent, contents, payments, total, tax)
+        break;
       }
     }
   })
-  return {urns: incomeUrns2, cremation: incomeCremation2, pawprints: incomePawprints2, noseprint: incomeNoseprint2, jewelry: incomeJewelry2, delivery: incomeDelivery2, all: incomeAll2, urnTaxes: taxUrns, cremationTaxes: taxCremation, pawprintsTaxes: taxPawprints, noseprintTaxes: taxNoseprint, jewelryTaxes: taxJewelry, deliveryTaxes: taxDelivery, allTaxes: taxAll}
+  return {bath: incomeBath2, haircut: incomeHaircut2, dental: incomeDental2, pawprints: incomePawprints2, jewelry: incomeJewelry2, all: incomeAll2, bathTaxes: taxBath, haircutTaxes: taxHaircut, pawprintsTaxes: taxPawprints, dentalTaxes: taxDental, jewelryTaxes: taxJewelry, allTaxes: taxAll}
 }
 
 

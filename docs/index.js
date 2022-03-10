@@ -373,14 +373,14 @@ function displayReportsData(r) {
   let payments = r.paymentData[0]
   let carts  = r.cartData
 
-  let credTitle = createEls('H3', 'credit-revenue-header', 'Credit sales: ')
-  let credTotal = createEls('DIV', 'credit-revenue-line', `$${payments.creditRev.toFixed(2)}`)
-  let webTitle = createEls('H3', 'web-revenue-header', 'Web sales: ')
-  let webTotal = createEls('DIV', 'web-revenue', `$${payments.webRev.toFixed(2)}`)
-  let cashTitle = createEls('H3', 'cash-revenue-header', 'Cash sales: ')
-  let cashTotal = createEls('DIV', 'cash-revenue', `$${payments.cashRev.toFixed(2)}`)
-  let checkTitle = createEls('H3', 'check-revenue-header', 'Check sales: ')
-  let checkTotal = createEls('DIV', 'check-revenue', `$${payments.checkRev.toFixed(2)}`)
+  let credTitle = createEls('H3', ['credit-revenue-header', 'show-related'], 'Credit sales: ')
+  let credTotal = createEls('DIV', ['credit-revenue-line', 'show-related'], `$${payments.creditRev.toFixed(2)}`)
+  let webTitle = createEls('H3', ['web-revenue-header', 'show-related'], 'Web sales: ')
+  let webTotal = createEls('DIV', ['web-revenue', 'show-related'], `$${payments.webRev.toFixed(2)}`)
+  let cashTitle = createEls('H3', ['cash-revenue-header', 'show-related'], 'Cash sales: ')
+  let cashTotal = createEls('DIV', ['cash-revenue', 'show-related'], `$${payments.cashRev.toFixed(2)}`)
+  let checkTitle = createEls('H3', ['check-revenue-header', 'show-related'], 'Check sales: ')
+  let checkTotal = createEls('DIV', ['check-revenue', 'show-related'], `$${payments.checkRev.toFixed(2)}`)
   let incomeTracker = 0
   let discTracker = 0
   let taxTracker = 0
@@ -394,29 +394,23 @@ function displayReportsData(r) {
   let incomeTotal = createEls('DIV', 'total-revenue', `$${totalRevBeforeTax.toFixed(2)}`)
   // let discTitle = createEls('H3', 'discount-amount-header', 'Total discounts given: ')
   // let discTotal = createEls('DIV', 'discount-amount', `$${discTracker.toFixed(2)}`)
-  let taxTitle = createEls('H3', 'tax-revenue-header', 'Total Tax Income: ') 
-  let taxTotal = createEls('DIV', 'tax-revenue', `$${totalTaxRev.toFixed(2)}`)
   let absoluteAmt = (payments.creditRev + payments.webRev + payments.cashRev + payments.checkRev).toFixed(2)
   let absoluteTitle = createEls('H3', 'absolute-total-income-header', 'Total Income: ')
   let absoluteTotal = createEls('DIV', 'absolute-total-income', `$${absoluteAmt}`)
-  let cremIncomeTitle = createEls('H3', 'cremation-income-header', 'Income Cremation: ')
-  let cremIncomeTotal = createEls('DIV', 'cremation-income-total', '')
-  let jewelryIncomeTitle = createEls('H3', 'jewelry-income-header', 'Income Jewelry: ')
-  let jewelryIncomeTotal = createEls('DIV', 'jewelry-income-total', '')
-  let noseprintIncomeTitle = createEls('H3', 'noseprint-income-header', 'Income Noseprint: ')
-  let noseprintIncomeTotal = createEls('DIV', 'noseprint-income-total', '')
-  let pawprintIncomeTitle = createEls('H3', 'pawprint-income-header', 'Income Pawprint: ')
-  let pawprintIncomeTotal = createEls('DIV', 'pawprint-income-total', '')
-  let urnsIncomeTitle = createEls('H3', 'urns-income-header', 'Income Urns: ')
-  let urnsIncomeTotal = createEls('DIV', 'urns-income-total', '')
-  let deliveryIncomeTitle = createEls('H3', 'delivery-income-header', 'Income Delivery: ')
-  let deliveryIncomeTotal = createEls('DIV', 'delivery-income-total', '')
-  let fuelIncomeTitle = createEls('H3', 'fuel-income-header', 'Income Fuel: ')
-  let fuelIncomeTotal = createEls('DIV', 'fuel-income-total', '$0.00')
-  let coordinationIncomeTitle = createEls('H3', 'coordination-income-header', 'Income Coordination: ')
-  let coordinationIncomeTotal = createEls('DIV', 'coordination-income-total', '$0.00')
-  document.querySelector('.reports-container').append(credTitle, credTotal, webTitle, webTotal, cashTitle, cashTotal, checkTitle, checkTotal)
-  document.querySelector('.reports-container').append(cremIncomeTitle, cremIncomeTotal, jewelryIncomeTitle, jewelryIncomeTotal, noseprintIncomeTitle, noseprintIncomeTotal, pawprintIncomeTitle, pawprintIncomeTotal, urnsIncomeTitle, urnsIncomeTotal, deliveryIncomeTitle, deliveryIncomeTotal, fuelIncomeTitle, fuelIncomeTotal, coordinationIncomeTitle, coordinationIncomeTotal, taxTitle, taxTotal, totalIncomeTitle, incomeTotal, absoluteTitle, absoluteTotal)
+  let taxTitle = createEls('H3', 'tax-revenue-header', 'Total Tax Income: ') 
+  let taxTotal = createEls('DIV', 'tax-revenue', `$${totalTaxRev.toFixed(2)}`)
+  let haircutIncomeTitle = createEls('H3', ['haircut-income-header', 'show-related'], 'Income Haircut: ')
+  let haircutIncomeTotal = createEls('DIV', ['haircut-income-total', 'show-related'], '')
+  let jewelryIncomeTitle = createEls('H3', ['jewelry-income-header', 'show-related'], 'Income Jewelry: ')
+  let jewelryIncomeTotal = createEls('DIV', ['jewelry-income-total', 'show-related'], '')
+  let dentalIncomeTitle = createEls('H3', ['dental-income-header', 'show-related'], 'Income Dental: ')
+  let dentalIncomeTotal = createEls('DIV', ['dental-income-total', 'show-related'], '')
+  let pawprintIncomeTitle = createEls('H3', ['pawprint-income-header', 'show-related'], 'Income Pawprint: ')
+  let pawprintIncomeTotal = createEls('DIV', ['pawprint-income-total', 'show-related'], '')
+  let bathsIncomeTitle = createEls('H3', ['baths-income-header', 'show-related'], 'Income Baths: ')
+  let bathsIncomeTotal = createEls('DIV', ['baths-income-total', 'show-related'], '')
+  document.querySelector('.reports-container').append(absoluteTitle, absoluteTotal, taxTitle, taxTotal, credTitle, credTotal, webTitle, webTotal, cashTitle, cashTotal, checkTitle, checkTotal)
+  document.querySelector('.reports-container').append(totalIncomeTitle, incomeTotal, haircutIncomeTitle, haircutIncomeTotal, jewelryIncomeTitle, jewelryIncomeTotal, dentalIncomeTitle, dentalIncomeTotal, pawprintIncomeTitle, pawprintIncomeTotal, bathsIncomeTitle, bathsIncomeTotal)
 
   let totalCartContainer = createEls('DIV', 'reports-cart-total-container', 'Carts: ')
   let cartCategories = {}
@@ -437,7 +431,7 @@ function displayReportsData(r) {
     let findTotalPaidAllCategories = await totalPaidAllCategories(eachCartContents, eachCartPayments, eachCartTotal, eachCartContentModifiers.tax)
     let findTotalDueAllCategories = await totalDueAllCategories(eachCartContents, eachCartContentsCost)
     // console.log(eachCartContentModifiers, findAllTaxes, findTotalDueAllCategories, findTotalPaidAllCategories, taxTracker, discTracker)
-    console.log(findTotalPaidAllCategories)
+    // console.log(findTotalPaidAllCategories)
 
     let 
 
@@ -445,14 +439,17 @@ function displayReportsData(r) {
     totalTaxRev = findTotalPaidAllCategories.allTaxes
     incomeTotal.innerText = '$' + totalRevBeforeTax.toFixed(2)
     taxTotal.innerText = '$' + totalTaxRev.toFixed(2)
-    console.log(eachCartInd, carts.length)
+    // console.log(eachCartInd, carts.length)
     if((eachCartInd + 1) === carts.length) {
-      cremIncomeTotal.innerText = '$' + findTotalPaidAllCategories.cremation.toFixed(2)
+      // cremIncomeTotal.innerText = '$' + findTotalPaidAllCategories.cremation.toFixed(2)
+      bathsIncomeTotal.innerText = '$' + findTotalPaidAllCategories.bath.toFixed(2)
+      haircutIncomeTotal.innerText = '$' + findTotalPaidAllCategories.haircut.toFixed(2)
+      dentalIncomeTotal.innerText = '$' + findTotalPaidAllCategories.dental.toFixed(2)
       jewelryIncomeTotal.innerText = '$' + findTotalPaidAllCategories.jewelry.toFixed(2)
-      noseprintIncomeTotal.innerText = '$' + findTotalPaidAllCategories.noseprint.toFixed(2)
+      // noseprintIncomeTotal.innerText = '$' + findTotalPaidAllCategories.noseprint.toFixed(2)
       pawprintIncomeTotal.innerText = '$' + findTotalPaidAllCategories.pawprints.toFixed(2)
-      urnsIncomeTotal.innerText = '$' + findTotalPaidAllCategories.urns.toFixed(2)
-      deliveryIncomeTotal.innerText = '$' + findTotalPaidAllCategories.delivery.toFixed(2)
+      // urnsIncomeTotal.innerText = '$' + findTotalPaidAllCategories.urns.toFixed(2)
+      // deliveryIncomeTotal.innerText = '$' + findTotalPaidAllCategories.delivery.toFixed(2)
       // fuelIncomeTotal.innerText = '$' + findTotalPaidAllCategories.cremation.toFixed(2)
       // coordinationIncomeTotal.innerText = '$' + findTotalPaidAllCategories.cremation.toFixed(2)
     }
@@ -1001,7 +998,7 @@ async function displayInitialData(data) {
     defaultLogEntry.append(defaultLogEntryLine1, defaultLogEntryLine2)
     changelogContainer.appendChild(defaultLogEntry)
     est.changelog.forEach((eachLog, assignmentCheck) => {
-      // console.log(eachLog, Object.keys(eachLog)[0])
+      console.log(eachLog, Object.keys(eachLog)[0], est.changelog)
       // let es = eachLog["Assigned to"] != undefined ? eachLog["Assigned to"] : eachLog["Stage Update"]
       let es = Object.keys(eachLog)[0]
       let a = JSON.parse(localStorage.namemap)
@@ -1339,10 +1336,13 @@ function displayEstimateDetails(data) {
   // getEstimatesFromQuickbooks(data)
   // console.log(data)
   sortParams.forEach(eachParam => {
-    let newParam = createEls('DIV', 'sort-param', eachParam)
-    newParam.classList.add(eachParam.replace(/\s+/g, '-').toLowerCase())
-    newParam.addEventListener('click', sortEstimates)
-    document.querySelector('.sort-by').appendChild(newParam)
+    console.log(eachParam)
+    if(eachParam != "Date of Passing" && eachParam != "QBEstimateId" && eachParam != "QBCustomerId") {
+      let newParam = createEls('DIV', 'sort-param', eachParam)
+      newParam.classList.add(eachParam.replace(/\s+/g, '-').toLowerCase())
+      newParam.addEventListener('click', sortEstimates)
+      document.querySelector('.sort-by').appendChild(newParam)
+    }
   })
 
   displayInitialData(data)
@@ -1623,86 +1623,90 @@ async function displayEstimateForm(a) {
     }
     if(sectionName != "invalid") {
       for(let rawLineData in a.template[eachSection]) {
-        adjCount++
-        let adjTarg = Object.keys(a.template[eachSection])
-        let blankLab = undefined
-        // if(a.template[eachSection][adjTarg[adjCount]] != undefined && a.template[eachSection][adjTarg[adjCount]].type == "yes-no" && a.template[eachSection][rawLineData].type == "yes-no") {
-        if(a.template[eachSection][adjTarg[adjCount]] != undefined && a.template[eachSection][adjTarg[adjCount]].type == "yes-no") {
-          // console.log(adjCount, adjTarg[adjCount])
-          blankLab = createEls('LABEL', ['estimate-form-label', 'blank-label'], '') 
-        }
-        adjTarg = rawLineData
+        console.log(rawLineData)
 
-        let formOpsL1 
-        if(rawLineData.includes("PU")) {
-          formOpsL1 = createEls('LABEL', ['estimate-form-label', "pickup-info", "toggle-view"], rawLineData.replace('PU', '(Pick Up)')) //create initial Label container
-        }
-        else if(rawLineData.includes("DO")) {
-          formOpsL1 = createEls('LABEL', ['estimate-form-label', "dropoff-info", "toggle-view"], rawLineData.replace('DO', '(Drop Off)')) //create initial Label container
-        }
-        else {
-          formOpsL1 = createEls('LABEL', 'estimate-form-label', rawLineData) //create initial Label container
-        }
+        if(rawLineData != "Cremation Service" && rawLineData != "Nose Print" && rawLineData != "Urn") {
+          adjCount++
+          let adjTarg = Object.keys(a.template[eachSection])
+          let blankLab = undefined
+          // if(a.template[eachSection][adjTarg[adjCount]] != undefined && a.template[eachSection][adjTarg[adjCount]].type == "yes-no" && a.template[eachSection][rawLineData].type == "yes-no") {
+          if(a.template[eachSection][adjTarg[adjCount]] != undefined && a.template[eachSection][adjTarg[adjCount]].type == "yes-no") {
+            // console.log(adjCount, adjTarg[adjCount])
+            blankLab = createEls('LABEL', ['estimate-form-label', 'blank-label'], '') 
+          }
+          adjTarg = rawLineData
 
-        // if(rawLineData.includes("PU")) {
-        //   formOpsL1.classList.add("pickup-info", "toggle-view")
-        // }
-        // else if(rawLineData.includes("DO")) {
-        //   formOpsL1.classList.add("dropoff-info", "toggle-view")
-        // }
-        let formOpsL2
-        let formOpsL3
-        let formOpsL4
-        // console.log(a.template[eachSection][rawLineData].type)
-        switch(a.template[eachSection][rawLineData].type) { //create custom input 
-          case("short-text"): {
-            formOpsL2 = createEls('INPUT', 'estimate-form-input', '')
-            formOpsL2.type = "text"
-            formOpsL2.name = rawLineData
-            if(preFilledForm[rawLineData]) {
-              // console.log("Had it!", rawLineData, preFilledForm[rawLineData])
-              formOpsL2.value = preFilledForm[rawLineData]
+          let formOpsL1 
+          if(rawLineData.includes("PU")) {
+            formOpsL1 = createEls('LABEL', ['estimate-form-label', "pickup-info", "toggle-view"], rawLineData.replace('PU', '(Pick Up)')) //create initial Label container
+          }
+          else if(rawLineData.includes("DO")) {
+            formOpsL1 = createEls('LABEL', ['estimate-form-label', "dropoff-info", "toggle-view"], rawLineData.replace('DO', '(Drop Off)')) //create initial Label container
+          }
+          else {
+            formOpsL1 = createEls('LABEL', 'estimate-form-label', rawLineData) //create initial Label container
+          }
+
+          // if(rawLineData.includes("PU")) {
+          //   formOpsL1.classList.add("pickup-info", "toggle-view")
+          // }
+          // else if(rawLineData.includes("DO")) {
+          //   formOpsL1.classList.add("dropoff-info", "toggle-view")
+          // }
+          let formOpsL2
+          let formOpsL3
+          let formOpsL4
+          // console.log(a.template[eachSection][rawLineData].type)
+          switch(a.template[eachSection][rawLineData].type) { //create custom input 
+            case("short-text"): {
+              formOpsL2 = createEls('INPUT', 'estimate-form-input', '')
+              formOpsL2.type = "text"
+              formOpsL2.name = rawLineData
+              if(preFilledForm[rawLineData]) {
+                // console.log("Had it!", rawLineData, preFilledForm[rawLineData])
+                formOpsL2.value = preFilledForm[rawLineData]
+              }
+              break;
             }
-            break;
-          }
-          case("long-text"): {
-            formOpsL2 = createEls('TEXTAREA', 'estimate-form-input', '')
-            formOpsL2.type = "text"
-            formOpsL2.name = rawLineData
-            if(preFilledForm[rawLineData]) {
-              console.log("Had it!", rawLineData, preFilledForm[rawLineData])
-              formOpsL2.value = preFilledForm[rawLineData]
+            case("long-text"): {
+              formOpsL2 = createEls('TEXTAREA', 'estimate-form-input', '')
+              formOpsL2.type = "text"
+              formOpsL2.name = rawLineData
+              if(preFilledForm[rawLineData]) {
+                console.log("Had it!", rawLineData, preFilledForm[rawLineData])
+                formOpsL2.value = preFilledForm[rawLineData]
+              }
+              break;
             }
+            case("yes-no"): {
+              formOpsL1.classList.add("adjust-me")
+              let innerLabel3 = createEls('LABEL', 'radio-inner-label', 'Yes')
+              formOpsL3 = makeRadioButtons('Yes', rawLineData)
+              let innerLabel4 = createEls('LABEL', 'radio-inner-label', 'No')
+              formOpsL4 = makeRadioButtons('No', rawLineData)
+              let radioHolder1 = createEls('DIV', 'radio-inner-holder', '')
+              radioHolder1.append(formOpsL3, innerLabel3)
+              let radioHolder2 = createEls('DIV', 'radio-inner-holder', '')
+              radioHolder2.append(formOpsL4, innerLabel4)
+              formOpsL2 = createEls('FORM', 'inner-estimate-form', '')
+              formOpsL2.append(radioHolder1, radioHolder2)
+              break;
+            }
+            case("dropdown"): {
+              formOpsL2 = makeDropdownOptions(rawLineData)
+              break;
+            }
+            default: 
+            formOpsL2 = createEls('LABEL', 'placeholder', 'placeholder')
             break;
           }
-          case("yes-no"): {
-            formOpsL1.classList.add("adjust-me")
-            let innerLabel3 = createEls('LABEL', 'radio-inner-label', 'Yes')
-            formOpsL3 = makeRadioButtons('Yes', rawLineData)
-            let innerLabel4 = createEls('LABEL', 'radio-inner-label', 'No')
-            formOpsL4 = makeRadioButtons('No', rawLineData)
-            let radioHolder1 = createEls('DIV', 'radio-inner-holder', '')
-            radioHolder1.append(formOpsL3, innerLabel3)
-            let radioHolder2 = createEls('DIV', 'radio-inner-holder', '')
-            radioHolder2.append(formOpsL4, innerLabel4)
-            formOpsL2 = createEls('FORM', 'inner-estimate-form', '')
-            formOpsL2.append(radioHolder1, radioHolder2)
-            break;
+          formOpsL1.appendChild(formOpsL2)
+          // formOpsL3 != undefined ? formOpsL1.appendChild(formOpsL3) : null //if formOpsL3 exists, add to L1.  Else, do nothing.
+          // formOpsL4 != undefined ? formOpsL1.appendChild(formOpsL4) : null //if formOpsL4 exists, add to L1.  Else, do nothing.
+          sectionName.appendChild(formOpsL1)
+          if(blankLab != undefined) {
+            sectionName.appendChild(blankLab)
           }
-          case("dropdown"): {
-            formOpsL2 = makeDropdownOptions(rawLineData)
-            break;
-          }
-          default: 
-          formOpsL2 = createEls('LABEL', 'placeholder', 'placeholder')
-          break;
-        }
-        formOpsL1.appendChild(formOpsL2)
-        // formOpsL3 != undefined ? formOpsL1.appendChild(formOpsL3) : null //if formOpsL3 exists, add to L1.  Else, do nothing.
-        // formOpsL4 != undefined ? formOpsL1.appendChild(formOpsL4) : null //if formOpsL4 exists, add to L1.  Else, do nothing.
-        sectionName.appendChild(formOpsL1)
-        if(blankLab != undefined) {
-          sectionName.appendChild(blankLab)
         }
       }
     }
@@ -1711,26 +1715,35 @@ async function displayEstimateForm(a) {
   function makeDropdownOptions(type) {
     let whichDropDown = {}
     switch(type) {
-      case "Cremation Service": 
-        whichDropDown = openObject.template["cremation"]
-        break;
+      // case "Cremation Service": 
+      //   whichDropDown = openObject.template["cremation"]
+      //   break;
       case "Paw Print Options": 
         whichDropDown = openObject.template["pawprints"]
         break;
-      case "Urn": 
-        whichDropDown = openObject.template["urns"]
-        break;
+      // case "Urn": 
+      //   whichDropDown = openObject.template["urns"]
+      //   break;
       case "Jewelry/Keychain": 
         whichDropDown = openObject.template["jewelry"]
         break;
-      case "Nose Print": 
-        whichDropDown = openObject.template["noseprint"]
+      // case "Nose Print": 
+      //   whichDropDown = openObject.template["noseprint"]
+      //   break;
+      // case "Special Order Statues": 
+      //   whichDropDown = openObject.template["statues"]
+      //   break;
+      // case "Delivery Option": 
+      //   whichDropDown = openObject.template["delivery"]
+      //   break;
+      case "Haircut": 
+        whichDropDown = openObject.template["haircut"]
         break;
-      case "Special Order Statues": 
-        whichDropDown = openObject.template["statues"]
+      case "Dental": 
+        whichDropDown = openObject.template["dental"]
         break;
-      case "Delivery Option": 
-        whichDropDown = openObject.template["delivery"]
+      case "Bath": 
+        whichDropDown = openObject.template["bath"]
         break;
     }
 
@@ -3172,8 +3185,10 @@ function displayCatalog(b) { //1341
   console.log(b)
   let catalogItems = b
   let categories = []
-  let updateCatalogButton = document.getElementById('submit-catalog-change')
-  updateCatalogButton.addEventListener('click', editCatalogItem)
+  let editCatalogButton = document.getElementById('submit-catalog-edit')
+  editCatalogButton.addEventListener('click', editCatalogItem)
+  let removeCatalogButton = document.getElementById('submit-catalog-remove')
+  removeCatalogButton.addEventListener('click', editCatalogItem)
 
   catalogItems.forEach(eachItem => {
     let itemCategory
@@ -3189,6 +3204,7 @@ function displayCatalog(b) { //1341
       let itemOb = createEls('DIV', ['catalog-item', `${eachItem.category}-item`], '')
       itemOb.id = eachItem._id
       let itemTitle = createEls('LABEL', 'item-title', eachItem.item)
+      let itemCategory = createEls('LABEL', 'item-category', eachItem.category)
       let itemStock = createEls('LABEL', 'item-stock', eachItem.stock)
       let itemCost = createEls('LABEL', 'item-cost', eachItem.cost)
       let editItem = createEls('BUTTON', 'edit-item', 'Edit')
@@ -3202,13 +3218,15 @@ function displayCatalog(b) { //1341
             updateCatalog(event)
         }
       });
-      itemOb.append(itemTitle, itemStock, itemCost, editItem)
+      itemOb.append(itemTitle, itemCategory, itemStock, itemCost, editItem)
+
       document.querySelector(`.${eachItem.category}-category`).append(itemOb)
     }
     else {
       let itemOb = createEls('DIV', ['catalog-item', `${eachItem.category}-item`, 'add-product'], '')
       itemOb.id = eachItem._id
       let itemTitle = createEls('LABEL', 'item-title', 'Add Product')
+      let itemCategory = createEls('LABEL', 'item-category', '')
       let itemStock = createEls('LABEL', 'item-stock', '')
       let itemCost = createEls('LABEL', 'item-cost', '')
       let editItem = createEls('BUTTON', 'edit-item', 'Edit')
@@ -3222,7 +3240,7 @@ function displayCatalog(b) { //1341
           updateCatalog(event)
         }
       });
-      itemOb.append(itemTitle, itemStock, itemCost, editItem)
+      itemOb.append(itemTitle, itemCategory, itemStock, itemCost, editItem)
       document.querySelector(`.${eachItem.category}-category`).append(itemOb)
     }
   })
@@ -3244,10 +3262,12 @@ function updateCatalog(g) {
   updateCatalog.style.opacity = 1
   updateCatalog.style.pointerEvents = "auto"
   updateCatalog.querySelector('#product-title').value = ""
+  updateCatalog.querySelector('#product-category').value = ""
   updateCatalog.querySelector('#product-cost').value = ""
   updateCatalog.querySelector('#product-stock').value = ""
   let shortcut = document.querySelector('.currently-selected')
   updateCatalog.querySelector('#product-title').placeholder = shortcut.querySelector('.item-title').innerText
+  updateCatalog.querySelector('#product-category').placeholder = shortcut.querySelector('.item-category').innerText
   updateCatalog.querySelector('#product-cost').placeholder = shortcut.querySelector('.item-cost').innerText
   updateCatalog.querySelector('#product-stock').placeholder = shortcut.querySelector('.item-stock').innerText
 }
@@ -3258,14 +3278,15 @@ function editCatalogItem(ev) {
   let newData = document.querySelector('.update-catalog')
   let updateMethod = (newData.querySelector('#product-stock').value === shortcut.querySelector('.item-stock').innerText || newData.querySelector('#product-stock').value === "") ? "edit product" : "update stock"
   updateMethod = shortcut.classList.contains("add-product") ? "create" : updateMethod
-  console.log(newData.querySelector('#product-stock').value, shortcut.querySelector('.item-stock').innerText, newData.querySelector('#product-stock').value === shortcut.querySelector('.item-stock').innerText)
+  updateMethod = ev.target.value === "remove" ? "delete" : updateMethod
+  console.log(ev.target.value, updateMethod, newData.querySelector('#product-stock').value, shortcut.querySelector('.item-stock').innerText, newData.querySelector('#product-stock').value === shortcut.querySelector('.item-stock').innerText)
   ev.preventDefault()
 
 
   bodyContent = {
     intent: updateMethod,
     id: shortcut.id,
-    category: classSlicer, 
+    category: newData.querySelector('#product-category').value === "" ? shortcut.querySelector('.item-category').innerText : newData.querySelector('#product-category').value, 
     item: newData.querySelector('#product-title').value === "" ? shortcut.querySelector('.item-title').innerText : newData.querySelector('#product-title').value, 
     cost: newData.querySelector('#product-cost').value === "" ? shortcut.querySelector('.item-cost').innerText : newData.querySelector('#product-cost').value,
     stock: newData.querySelector('#product-stock').value === "" ? shortcut.querySelector('.item-stock').innerText : newData.querySelector('#product-stock').value
