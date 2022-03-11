@@ -2542,7 +2542,7 @@ function handleTimeChange(h) { //split down the middle with orange for AM times 
   shortcut.innerText = empTimes === "clear" ? "" : empTimes
   console.log(bodyFiller)
   const updateSchedules = async () => {
-      const result = await fetch('http://localhost:3000/api/schedules', {
+      const result = await fetch(`${baseUrl}/api/schedules`, {
       method: "PUT",
       body: JSON.stringify(bodyFiller),
       // body: bodyFiller,
@@ -2810,7 +2810,7 @@ function displayRoutes(i) {
         //field: "stage1"
         //id: 
       }
-      fetch('http://localhost:3000/api/estimates', {
+      fetch(`${baseUrl}/api/estimates`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
