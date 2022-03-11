@@ -2920,7 +2920,7 @@ async function makeEachDriver(name, id, bg, assigns, confirms) {
     driverContainer.classList.add('off')
   }
 
-  let getLocation = await fetch(`http://localhost:3000/api/onelocation?id=${id}`, {
+  let getLocation = await fetch(`${baseUrl}/api/onelocation?id=${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
