@@ -46,7 +46,7 @@ function getToken(user){
     loginUrl = "http://localhost:3000"
   }
 	else if(window.location.href.includes('github')) {
-    loginUrl = "https://blalexander.github.io/rth/"
+    loginUrl = "https://blalexander.github.io/rth"
   }
   else {
     loginUrl = "https://rth-server.azurewebsites.net"
